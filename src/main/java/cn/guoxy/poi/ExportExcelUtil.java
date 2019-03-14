@@ -10,7 +10,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
+import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -24,94 +24,46 @@ import java.util.List;
 public class ExportExcelUtil {
     private static Logger logger = LoggerFactory.getLogger(ExportExcelUtil.class);
 
+    private static Integer max_sheet = 1000;
+    private static Integer max_row = 60000;
+
     /**
-     * 导出数据到文件
+     * 导出Excel对象
      *
-     * @param dataList 数据集合
-     * @param filePath 文件路径
-     * @param fileName 文件名称，不带后缀
-     * @author XiaoyongGuo
-     * @version 1.0-SNAPSHOT
-     **/
-    public static void exportToFile(String filePath, String fileName, List<?>... dataList) {
-        List<Workbook> workbooks = exportWorkbook(dataList);
-        FileOutputStream fileOutputStream = null;
-        try {
-            for (int i = 0; i < workbooks.size(); i++) {
-                String absolutePath = filePath + File.separator + fileName + i + ".xls";
-                File file = new File(filePath);
-                if (!file.exists()) {
-                    file.mkdirs();
-                    file.createNewFile();
-                }
-                file = new File(absolutePath);
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                Workbook workbook = workbooks.get(i);
-                fileOutputStream = new FileOutputStream(file);
-                workbook.write(fileOutputStream);
+     * @param sheetDataListArr Excel数据
+     * @return Workbook
+     */
+    public static Workbook exportWorkbook(List<?>... sheetDataListArr) {
 
-            }
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-            throw new XYExcelException(e);
-        } finally {
-            try {
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                }
-            } catch (Exception e) {
-                logger.error(e.getMessage(), e);
-                throw new XYExcelException(e);
-            }
+        // data array valid
+        if (sheetDataListArr == null || sheetDataListArr.length == 0) {
+            logger.error("参数异常");
+            throw new ParameterErrorException("参数异常");
         }
 
+        // book （HSSFWorkbook=2003/xls、XSSFWorkbook=2007/xlsx）
+        Workbook workbook = new HSSFWorkbook();
+
+        // sheet
+        for (List<?> dataList : sheetDataListArr) {
+            makeSheet(workbook, dataList);
+        }
+
+        return workbook;
     }
 
-    /**
-     * @param dataList 数据集合
-     * @return java.util.List workbook集合
-     * @author XiaoyongGuo
-     * @version 1.0-SNAPSHOT
-     **/
+    private static void makeSheet(Workbook workbook, List<?> sheetDataList) {
+        // data
+        if (sheetDataList == null || sheetDataList.size() == 0) {
+            logger.error("参数异常");
+            throw new ParameterErrorException("参数异常");
+        }
 
-    public static List<Workbook> exportWorkbook(List<?>... dataList) {
-        if (dataList == null || dataList.length == 0) {
-            logger.error("发生错误，参数为空");
-            throw new ParameterErrorException("发生错误，未传入任何参数");
-        }
-        List<Workbook> tempList = new ArrayList<>();
-        for (List<?> temp : dataList) {
-            Workbook workbook = new HSSFWorkbook();
-            makeSheet(workbook, temp);
-            tempList.add(workbook);
-        }
-        return tempList;
-    }
-
-    /**
-     * @param workbook 文档对象
-     * @param dataList 数据集合
-     * @return void
-     * @author XiaoyongGuo
-     * @version 1.0-SNAPSHOT
-     **/
-    private static void makeSheet(Workbook workbook, List<?> dataList) {
-        if (dataList == null || dataList.size() == 0) {
-            logger.error("发生错误，传入的参数集合为空");
-            throw new ParameterErrorException("发生错误，传入的参数集合为空");
-        }
-        if (workbook == null) {
-            logger.error("发生错误，未成功创建WorkBook");
-            throw new ParameterErrorException("发生错误，未成功创建WorkBook");
-        }
-        Class<?> sheetClass = dataList.get(0).getClass();
+        // sheet
+        Class<?> sheetClass = sheetDataList.get(0).getClass();
         SheetSetting sheetSetting = sheetClass.getAnnotation(SheetSetting.class);
 
-        String sheetName = sheetClass.getSimpleName();
-
-
+        String sheetName = sheetDataList.get(0).getClass().getSimpleName();
         int headColorIndex = -1;
         if (sheetSetting != null) {
             if (sheetSetting.name() != null && sheetSetting.name().trim().length() > 0) {
@@ -121,20 +73,23 @@ public class ExportExcelUtil {
         }
 
         Sheet existSheet = workbook.getSheet(sheetName);
+        String newSheet =sheetName;
         if (existSheet != null) {
-            for (int i = 2; i <= 1000; i++) {
+            for (int i = 2; i <= max_sheet; i++) {
                 String newSheetName = sheetName.concat(String.valueOf(i));
                 existSheet = workbook.getSheet(newSheetName);
                 if (existSheet == null) {
-                    sheetName = newSheetName;
+                    newSheet = newSheetName;
                     break;
                 } else {
                     continue;
                 }
             }
         }
-        Sheet sheet = workbook.createSheet(sheetName);
 
+        Sheet sheet = workbook.createSheet(newSheet);
+
+        // sheet field
         List<Field> fields = new ArrayList<Field>();
         if (sheetClass.getDeclaredFields() != null && sheetClass.getDeclaredFields().length > 0) {
             for (Field field : sheetClass.getDeclaredFields()) {
@@ -146,10 +101,11 @@ public class ExportExcelUtil {
         }
 
         if (fields == null || fields.size() == 0) {
-            logger.error("发生错误，数据字段不能为空");
-            throw new XYExcelException("发生错误，数据字段不能为空");
+            logger.error("参数异常");
+            throw new ParameterErrorException("参数异常");
         }
 
+        // sheet header row
         CellStyle[] fieldDataStyleArr = new CellStyle[fields.size()];
         int[] fieldWidthArr = new int[fields.size()];
         Row headRow = sheet.createRow(0);
@@ -193,13 +149,17 @@ public class ExportExcelUtil {
             cellX.setCellStyle(headStyle);
             cellX.setCellValue(String.valueOf(fieldName));
         }
+
         // sheet data rows
-        for (int dataIndex = 0; dataIndex < dataList.size(); dataIndex++) {
-            int rowIndex = dataIndex + 1;
-            if (rowIndex >= 60000) {
+        int rowIndex = 0;
+        for (int dataIndex = 0; dataIndex < sheetDataList.size(); dataIndex++) {
+            rowIndex++;
+            if (rowIndex >= max_row) {
                 sheet = createSheet(workbook, sheetName);
+                rowIndex = 0;
             }
-            Object rowData = dataList.get(dataIndex);
+            Object rowData = sheetDataList.get(dataIndex);
+
             Row rowX = sheet.createRow(rowIndex);
 
             for (int i = 0; i < fields.size(); i++) {
@@ -218,30 +178,23 @@ public class ExportExcelUtil {
                     throw new XYExcelException(e);
                 }
             }
-            // sheet finally
-            for (int i = 0; i < fields.size(); i++) {
-                int fieldWidth = fieldWidthArr[i];
-                if (fieldWidth > 0) {
-                    sheet.setColumnWidth(i, fieldWidth);
-                } else {
-                    sheet.autoSizeColumn((short) i);
-                }
-            }
         }
 
+        // sheet finally
+        for (int i = 0; i < fields.size(); i++) {
+            int fieldWidth = fieldWidthArr[i];
+            if (fieldWidth > 0) {
+                sheet.setColumnWidth(i, fieldWidth);
+            } else {
+                sheet.autoSizeColumn((short) i);
+            }
+        }
     }
 
-    /**
-     * @param sheetName sheet名称
-     * @param workbook  文档对象
-     * @return org.apache.poi.ss.usermodel.Sheet
-     * @author XiaoyongGuo
-     * @version 1.0-SNAPSHOT
-     **/
     private static Sheet createSheet(Workbook workbook, String sheetName) {
         Sheet existSheet = workbook.getSheet(sheetName);
         if (existSheet != null) {
-            for (int i = 2; i <= 1000; i++) {
+            for (int i = 2; i <= max_sheet; i++) {
                 String newSheetName = sheetName.concat(String.valueOf(i));
                 existSheet = workbook.getSheet(newSheetName);
                 if (existSheet == null) {
@@ -252,8 +205,79 @@ public class ExportExcelUtil {
                 }
             }
         }
+
         Sheet sheet = workbook.createSheet(sheetName);
         return sheet;
+    }
+
+    /**
+     * 导出Excel文件到磁盘
+     *
+     * @param filePath
+     * @param sheetDataListArr 数据，可变参数，如多个参数则代表导出多张Sheet
+     */
+    public static void exportToFile(String filePath, List<?>... sheetDataListArr) {
+        // workbook
+        Workbook workbook = exportWorkbook(sheetDataListArr);
+
+        FileOutputStream fileOutputStream = null;
+        try {
+            // workbook 2 FileOutputStream
+            fileOutputStream = new FileOutputStream(filePath);
+            workbook.write(fileOutputStream);
+
+            // flush
+            fileOutputStream.flush();
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            throw new XYExcelException(e);
+        } finally {
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (Exception e) {
+                logger.error(e.getMessage(), e);
+                throw new XYExcelException(e);
+            }
+        }
+    }
+
+    /**
+     * 导出Excel字节数据
+     *
+     * @param sheetDataListArr
+     * @return byte[]
+     */
+    public static byte[] exportToBytes(List<?>... sheetDataListArr) {
+        // workbook
+        Workbook workbook = exportWorkbook(sheetDataListArr);
+
+        ByteArrayOutputStream byteArrayOutputStream = null;
+        byte[] result = null;
+        try {
+            // workbook 2 ByteArrayOutputStream
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            workbook.write(byteArrayOutputStream);
+
+            // flush
+            byteArrayOutputStream.flush();
+
+            result = byteArrayOutputStream.toByteArray();
+            return result;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            throw new XYExcelException(e);
+        } finally {
+            try {
+                if (byteArrayOutputStream != null) {
+                    byteArrayOutputStream.close();
+                }
+            } catch (Exception e) {
+                logger.error(e.getMessage(), e);
+                throw new XYExcelException(e);
+            }
+        }
     }
 
 }
