@@ -18,7 +18,7 @@
         </license>
     </licenses>
     <scm>
-        <url>https://github.com/guosteven/XY-Excel.git</url>
+        <url>https://github.com/guosteven/XY-Excel</url>
         <connection>scm:git:https://github.com/guosteven/XY-Excel.git</connection>
         <developerConnection>scm:git:https://github.com/guosteven/XY-Excel.git</developerConnection>
     </scm>
@@ -41,7 +41,7 @@
         <maven.test.skip>true</maven.test.skip>
 
         <slf4j-api.version>1.7.25</slf4j-api.version>
-        <poi.version>3.18</poi.version>
+        <poi.version>3.17</poi.version>
 
     </properties>
 
