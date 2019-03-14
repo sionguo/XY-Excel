@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 19:18
+ * @author XiaoyongGuo
+ * @version 1.0-SNAPSHOT
  */
 public class ExportExcelUtil {
     private static Logger logger = LoggerFactory.getLogger(ExportExcelUtil.class);
@@ -29,9 +29,9 @@ public class ExportExcelUtil {
      *
      * @param dataList 数据集合
      * @param filePath 文件路径
+     * @param fileName 文件名称，不带后缀
      * @author XiaoyongGuo
-     * @Description
-     * @date 2019/3/14/014
+     * @version 1.0-SNAPSHOT
      **/
     public static void exportToFile(String filePath, String fileName, List<?>... dataList) {
         List<Workbook> workbooks = exportWorkbook(dataList);
@@ -39,8 +39,17 @@ public class ExportExcelUtil {
         try {
             for (int i = 0; i < workbooks.size(); i++) {
                 String absolutePath = filePath + File.separator + fileName + i + ".xls";
+                File file = new File(filePath);
+                if (!file.exists()) {
+                    file.mkdirs();
+                    file.createNewFile();
+                }
+                file = new File(absolutePath);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
                 Workbook workbook = workbooks.get(i);
-                fileOutputStream = new FileOutputStream(absolutePath);
+                fileOutputStream = new FileOutputStream(file);
                 workbook.write(fileOutputStream);
 
             }
@@ -60,6 +69,13 @@ public class ExportExcelUtil {
 
     }
 
+    /**
+     * @param dataList 数据集合
+     * @return java.util.List workbook集合
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
+     **/
+
     public static List<Workbook> exportWorkbook(List<?>... dataList) {
         if (dataList == null || dataList.length == 0) {
             logger.error("发生错误，参数为空");
@@ -74,6 +90,13 @@ public class ExportExcelUtil {
         return tempList;
     }
 
+    /**
+     * @param workbook 文档对象
+     * @param dataList 数据集合
+     * @return void
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
+     **/
     private static void makeSheet(Workbook workbook, List<?> dataList) {
         if (dataList == null || dataList.size() == 0) {
             logger.error("发生错误，传入的参数集合为空");
@@ -208,6 +231,13 @@ public class ExportExcelUtil {
 
     }
 
+    /**
+     * @param sheetName sheet名称
+     * @param workbook  文档对象
+     * @return org.apache.poi.ss.usermodel.Sheet
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
+     **/
     private static Sheet createSheet(Workbook workbook, String sheetName) {
         Sheet existSheet = workbook.getSheet(sheetName);
         if (existSheet != null) {

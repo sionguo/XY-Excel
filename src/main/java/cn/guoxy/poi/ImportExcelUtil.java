@@ -18,18 +18,29 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 20:42
+ * @author XiaoyongGuo
  */
 public class ImportExcelUtil {
     private static Logger logger = LoggerFactory.getLogger(ImportExcelUtil.class);
 
-    public static List<Object> importExcel(Workbook workbook, Class<?> sheetClass) {
-        List<Object> sheetDataList = importSheet(workbook, sheetClass);
+    /**
+     * @param workbook   文档对象
+     * @param sheetClass 对应的对象类型
+     * @return List
+     * @author XiaoyongGuo
+     */
+    private static List<?> importExcel(Workbook workbook, Class<?> sheetClass) {
+        List<?> sheetDataList = importSheet(workbook, sheetClass);
         return sheetDataList;
     }
 
-    public static List<Object> importSheet(Workbook workbook, Class<?> sheetClass) {
+    /**
+     * @param workbook   文档对象
+     * @param sheetClass 对应的对象类型
+     * @return java.util.List
+     * @author XiaoyongGuo
+     **/
+    private static List<?> importSheet(Workbook workbook, Class<?> sheetClass) {
         try {
             // sheet
             SheetSetting sheetSetting = sheetClass.getAnnotation(SheetSetting.class);
@@ -102,14 +113,16 @@ public class ImportExcelUtil {
     /**
      * 导入Excel文件，并封装成对象
      *
-     * @param excelFile
-     * @param sheetClass
-     * @return List<Object>
+     * @param excelFile  excel文件
+     * @param sheetClass 对应的对象类型
+     * @return List
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
      */
-    public static List<Object> importExcel(File excelFile, Class<?> sheetClass) {
+    public static List<?> importExcel(File excelFile, Class<?> sheetClass) {
         try {
             Workbook workbook = WorkbookFactory.create(excelFile);
-            List<Object> dataList = importExcel(workbook, sheetClass);
+            List<?> dataList = importExcel(workbook, sheetClass);
             return dataList;
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
@@ -124,27 +137,31 @@ public class ImportExcelUtil {
     /**
      * 从文件路径导入Excel文件，并封装成对象
      *
-     * @param filePath
-     * @param sheetClass
-     * @return List<Object>
+     * @param filePath   文件路径
+     * @param sheetClass 对应的对象类型
+     * @return List
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
      */
-    public static List<Object> importExcel(String filePath, Class<?> sheetClass) {
+    public static List<?> importExcel(String filePath, Class<?> sheetClass) {
         File excelFile = new File(filePath);
-        List<Object> dataList = importExcel(excelFile, sheetClass);
+        List<?> dataList = importExcel(excelFile, sheetClass);
         return dataList;
     }
 
     /**
      * 导入Excel数据流，并封装成对象
      *
-     * @param inputStream
-     * @param sheetClass
-     * @return List<Object>
+     * @param inputStream excel输入流
+     * @param sheetClass  对应的对象类型
+     * @return List
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
      */
-    public static List<Object> importExcel(InputStream inputStream, Class<?> sheetClass) {
+    public static List<?> importExcel(InputStream inputStream, Class<?> sheetClass) {
         try {
             Workbook workbook = WorkbookFactory.create(inputStream);
-            List<Object> dataList = importExcel(workbook, sheetClass);
+            List<?> dataList = importExcel(workbook, sheetClass);
             return dataList;
         } catch (IOException e) {
             logger.error(e.getMessage(), e);

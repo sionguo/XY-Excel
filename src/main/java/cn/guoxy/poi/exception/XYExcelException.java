@@ -1,8 +1,8 @@
 package cn.guoxy.poi.exception;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 20:34
+ * @author XiaoyongGuo
+ * @version 1.0-SNAPSHOT
  */
 public class XYExcelException extends RuntimeException {
     public XYExcelException() {

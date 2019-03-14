@@ -5,8 +5,8 @@ import org.apache.poi.hssf.util.HSSFColor;
 import java.lang.annotation.*;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 19:21
+ * @author XiaoyongGuo
+ * @version 1.0-SNAPSHOT
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

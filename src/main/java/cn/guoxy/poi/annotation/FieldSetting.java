@@ -5,8 +5,8 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import java.lang.annotation.*;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 19:39
+ * @author XiaoyongGuo
+ * @version 1.0-SNAPSHOT
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

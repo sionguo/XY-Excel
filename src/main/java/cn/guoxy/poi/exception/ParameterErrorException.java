@@ -1,8 +1,8 @@
 package cn.guoxy.poi.exception;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 19:45
+ * @author XiaoyongGuo
+ * @version 1.0-SNAPSHOT
  */
 public class ParameterErrorException extends RuntimeException {
     public ParameterErrorException() {

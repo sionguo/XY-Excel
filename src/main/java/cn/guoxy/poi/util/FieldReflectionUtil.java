@@ -11,8 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author: XiaoyongGuo
- * @date: 2019/3/14/014 19:42
+ * @author XiaoyongGuo
+ * @version 1.0-SNAPSHOT
  */
 public final class FieldReflectionUtil {
 
@@ -110,9 +110,11 @@ public final class FieldReflectionUtil {
     /**
      * 参数解析 （支持：Byte、Boolean、String、Short、Integer、Long、Float、Double、Date）
      *
-     * @param field
-     * @param value
+     * @param field 字段
+     * @param value 值
      * @return Object
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
      */
     public static Object parseValue(Field field, String value) {
         Class<?> fieldType = field.getType();
@@ -150,9 +152,11 @@ public final class FieldReflectionUtil {
     /**
      * 参数格式化为String
      *
-     * @param field
-     * @param value
+     * @param field 字段
+     * @param value 值
      * @return String
+     * @author XiaoyongGuo
+     * @version 1.0-SNAPSHOT
      */
     public static String formatValue(Field field, Object value) {
         Class<?> fieldType = field.getType();
