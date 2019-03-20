@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2ca780b-3760-4d44-8202-8a66f89b5108" name="Default Changelist" comment="" />
+    <list default="true" id="c2ca780b-3760-4d44-8202-8a66f89b5108" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.zh-CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.zh-CN.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +22,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -28,6 +30,18 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.zh-CN.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -160,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/util/FieldReflectionUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/exception/ParameterErrorException.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java" />
+        <option value="$PROJECT_DIR$/README.zh-CN.md" />
       </list>
     </option>
   </component>
@@ -170,7 +185,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="990" />
     <option name="y" value="119" />
     <option name="width" value="966" />
@@ -182,6 +197,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -246,7 +262,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,6 +329,7 @@
       <workItem from="1552884613381" duration="843000" />
       <workItem from="1552909155662" duration="638000" />
       <workItem from="1552957390483" duration="13000" />
+      <workItem from="1553049804541" duration="47000" />
     </task>
     <servers />
   </component>
@@ -323,16 +339,16 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20233000" />
+    <option name="totallyTimeSpent" value="20280000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="990" y="119" width="966" height="1053" extended-state="1" />
+    <frame x="-4" y="-4" width="1928" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.31400436" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.15618336" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -473,6 +489,16 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.zh-CN.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
