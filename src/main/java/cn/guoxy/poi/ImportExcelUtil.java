@@ -120,8 +120,9 @@ public class ImportExcelUtil {
      * @version 1.0-SNAPSHOT
      */
     public static List<?> importExcel(File excelFile, Class<?> sheetClass) {
+        Workbook workbook = null;
         try {
-            Workbook workbook = WorkbookFactory.create(excelFile);
+            workbook = WorkbookFactory.create(excelFile);
             List<?> dataList = importExcel(workbook, sheetClass);
             return dataList;
         } catch (IOException e) {
@@ -130,6 +131,14 @@ public class ImportExcelUtil {
         } catch (InvalidFormatException e) {
             logger.error(e.getMessage(), e);
             throw new XYExcelException(e);
+        } finally {
+            if (workbook != null) {
+                try {
+                    workbook.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -144,7 +153,8 @@ public class ImportExcelUtil {
      * @version 1.0-SNAPSHOT
      */
     public static List<?> importExcel(String filePath, Class<?> sheetClass) {
-        File excelFile = new File(filePath);
+        File excelFile = null;
+        excelFile = new File(filePath);
         List<?> dataList = importExcel(excelFile, sheetClass);
         return dataList;
     }
@@ -169,6 +179,14 @@ public class ImportExcelUtil {
         } catch (InvalidFormatException e) {
             logger.error(e.getMessage(), e);
             throw new XYExcelException(e);
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

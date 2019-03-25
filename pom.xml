@@ -4,6 +4,7 @@
     <groupId>cn.guoxy</groupId>
     <artifactId>XY-Excel</artifactId>
     <packaging>jar</packaging>
+	<description>方便的导入导出你的EXCEL</description>
 
     <version>1.0.1</version>
     <name>${project.artifactId}</name>
