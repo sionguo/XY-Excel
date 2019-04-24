@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2ca780b-3760-4d44-8202-8a66f89b5108" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ImportExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ImportExcelUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-javadoc.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1-javadoc.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-javadoc.jar.asc" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1-javadoc.jar.asc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1-sources.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-sources.jar.asc" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1-sources.jar.asc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.jar.asc" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1.jar.asc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.pom" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1.pom" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.pom.asc" beforeDir="false" afterPath="$PROJECT_DIR$/target/XY-Excel-1.0.1.pom.asc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-javadoc.jar.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1-sources.jar.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.jar.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.pom" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/XY-Excel-1.0.1.pom.asc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/allclasses-noframe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/cn/guoxy/poi/ExportExcelUtil.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/cn/guoxy/poi/ExportExcelUtil.html" afterDir="false" />
@@ -56,6 +56,14 @@
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/overview-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/apidocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/apidocs/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/ExportExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/ExportExcelUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/ImportExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/ImportExcelUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/annotation/FieldSetting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/annotation/FieldSetting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/annotation/SheetSetting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/annotation/SheetSetting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/exception/FormattingException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/exception/FormattingException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/exception/ParameterErrorException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/exception/ParameterErrorException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/exception/XYExcelException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/exception/XYExcelException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/util/FieldReflectionUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/guoxy/poi/util/FieldReflectionUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,14 +75,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ImportExcelUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
+            <state relative-caret-position="3932">
               <caret line="186" column="20" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1605#1612#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="57" column="33" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,9 +153,9 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/exception/XYExcelException.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/util/FieldReflectionUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/exception/ParameterErrorException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java" />
         <option value="$PROJECT_DIR$/README.zh-CN.md" />
         <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ImportExcelUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java" />
       </list>
     </option>
   </component>
@@ -148,8 +167,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1148" />
-    <option name="y" value="338" />
+    <option name="x" value="887" />
+    <option name="y" value="3" />
     <option name="width" value="966" />
     <option name="height" value="1024" />
   </component>
@@ -159,7 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -194,14 +212,11 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="poi" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="XY-Excel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,7 +225,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -271,7 +286,14 @@
       <workItem from="1552957390483" duration="13000" />
       <workItem from="1553049804541" duration="1766000" />
       <workItem from="1553060704062" duration="38000" />
-      <workItem from="1553480600334" duration="645000" />
+      <workItem from="1553480600334" duration="1246000" />
+      <workItem from="1553562417125" duration="22000" />
+      <workItem from="1555047918574" duration="1144000" />
+      <workItem from="1555049184963" duration="128000" />
+      <workItem from="1555049333017" duration="63000" />
+      <workItem from="1555049415169" duration="1051000" />
+      <workItem from="1555051171810" duration="660000" />
+      <workItem from="1555216057733" duration="475000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1553049881680</created>
@@ -289,7 +311,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22682000" />
+    <option name="totallyTimeSpent" value="26826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1058" extended-state="6" />
@@ -298,7 +320,7 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.07942431" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.1076759" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
@@ -361,16 +383,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/util/FieldReflectionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4250">
@@ -392,16 +404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="34" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/annotation/SheetSetting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -446,13 +448,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/annotation/SheetSetting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ImportExcelUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
+        <state relative-caret-position="3932">
           <caret line="186" column="20" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1605#1612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/guoxy/poi/ExportExcelUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="57" column="33" selection-start-line="57" selection-start-column="33" selection-end-line="57" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
