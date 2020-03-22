@@ -8,7 +8,13 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAccessor;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author XiaoyongGuo
@@ -187,6 +193,10 @@ public final class FieldReflectionUtil {
             }
             SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
             return dateFormat.format(value);
+        } else if (Instant.class.equals(fieldType)) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).
+                    withLocale(Locale.CHINA).withZone(ZoneId.systemDefault());
+            return formatter.format((Instant) value);
         } else {
             logger.error("非法请求，输入的参数类型为包装类型，您输入的类型为:{}", fieldType);
             throw new FormattingException("非法请求，输入的参数类型为包装类型，您输入的类型为" + fieldType);
